@@ -1,0 +1,316 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&display=swap');
+/* Estilização geral */
+body {
+    font-family: 'Oswald', sans-serif;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: url('../assets/fundo.jpg') no-repeat center center/cover;
+}
+
+/* Estilização do modal */
+.modal {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    max-width: 400px;
+    min-width: 300px; /* Impede que o modal fique muito pequeno */
+    min-height: auto;
+    background: rgba(0, 0, 0, 0.6);
+    border-radius: 12px;
+    backdrop-filter: blur(5px);
+    padding: 20px;
+    text-align: center;
+    color: white;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start; /* Mantém os itens no topo */
+    max-height: 90vh; /* Nunca será maior que 90% da tela */
+    overflow-y: auto; /* Permite rolagem caso necessário */
+}
+
+/* 📌 Ajuste para telas muito pequenas */
+@media (max-width: 480px) {
+    .modal {
+        width: 95%; /* Ocupará 95% da largura da tela */
+        max-width: 350px; /* Nunca ultrapassa 350px */
+        padding: 15px; /* Reduz um pouco o padding */
+    }
+}
+
+/* 📌 Ajuste para tablets */
+@media (max-width: 768px) {
+    .modal {
+        max-width: 380px; /* Um pouco maior em tablets */
+    }
+}
+
+/* Logotipo */
+.logo {
+    width: 120px; /* Tamanho ajustado */
+    height: auto;
+    margin-bottom: -32px;
+    margin-top: -40px; /* Sobe ainda mais o logotipo */
+}
+
+.modal-content h2 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 25px;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-top: 0;
+    margin-bottom: -35px; /* Mantém o espaçamento ajustado */
+}
+.input-label {
+    font-family: 'Oswald', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    text-align: center;
+    color: #ffffff;
+    margin-top: 40px;
+    margin-bottom: 5px;
+}
+/* Grupo de input */
+.input-group {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+/* Estilo do indicativo do país */
+.country-code {
+    background: #545454;
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 8px 15px;
+    border-radius: 8px;
+    margin-right: 8px;
+    text-align: center;
+    min-width: 15px;
+}
+
+/* Caixa de entrada */
+.phone-input {
+    flex: 1;
+    background: rgba(84, 84, 84, 0.3); /* Transparência de 30% */
+    border: 1px solid rgba(255, 255, 255, 0.7); /* Borda branca suave */
+    border-radius: 8px; /* Ajustado para 5 */
+    padding: 10px;
+    font-size: 16px;
+    color: #ffffff;
+    outline: none;
+    width: 300px;
+    transition: all 0.3s ease-in-out;
+    transition: border 0.3s ease-in-out;
+}
+
+/* Placeholder */
+.phone-input::placeholder,
+.validation-input::placeholder {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 12px; /* Mantém o mesmo tamanho em ambas as caixas */
+}
+
+/* Efeito ao focar na caixa de entrada */
+.phone-input:focus {
+    box-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+    border-color: rgba(255, 255, 255, 0.9);
+}
+
+/* Ajustando o alinhamento da Caixa de Validação */
+.validation-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 370px; /* Mesmo tamanho do input de telefone + indicativo */
+    margin-top: 20px;
+    border-radius: 8px;
+    background: rgba(84, 84, 84, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.7);
+    padding: 10px;
+    height: 17px; /* Define uma altura fixa igual à da caixa de telefone */
+}
+
+/* Input da Caixa de Validação */
+.validation-input {
+    background: transparent; /* Remove a cor de fundo extra */
+    border: none; /* Remove bordas para que use a da div */
+    padding: 0;
+    font-size: 12px;
+    color: #ffffff;
+    outline: none;
+    width: 50%; /* Garante que o input ocupe a maior parte da caixa */
+}
+
+/* Placeholder */
+.validation-input::placeholder {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+/* Efeito ao focar */
+.validation-input:focus {
+    outline: none;
+}
+
+/* Efeito hover no link */
+.validation-link:hover {
+    color: #0d5bbf;
+}
+
+.validation-link {
+    color: #197cfa;
+    font-size: 16px;
+    font-weight: bold;
+    margin-top: 0px;
+    cursor: pointer;
+    transition: color 0.3s ease-in-out;
+}
+
+.validation-link:not(.active) {
+    color: #aaa; /* Cinza quando inativo */
+    cursor: not-allowed;
+}
+
+/* Ícone de sucesso e mensagem */
+.success-message {
+    display: flex;
+    align-items: center;
+    color: #ffffff;
+    font-size: 14px;
+    margin-top: 10px;
+    gap: 5px;
+    justify-content: flex-start; /* Mantém alinhado à esquerda */
+    font-weight: bold;
+}
+
+/* Ícone de check verde */
+.success-message img {
+    width: 20px;
+    height: 20px;
+}
+
+.success-message span {
+    color: #00FF00;
+    font-size: 20px; /* Deixa o check maior */
+}
+
+/* Botão Próximo */
+.next-button {
+    background-color: #197cfa;
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: bold;
+    text-transform: uppercase;
+    width: 100%;
+    max-width: 390px;
+    padding: 15px;
+    border: none;
+    border-radius: 8px; /* Arredondamento */
+    cursor: pointer;
+    margin-top: 20px; /* Distância da caixa de validação */
+    transition: background 0.3s ease-in-out, transform 0.2s ease-in-out;
+}
+
+/* Efeito Hover */
+.next-button:hover {
+    background-color: #165ab8;
+}
+
+/* Efeito de clique */
+.next-button:active {
+    transform: scale(0.98);
+}
+
+/* Botão desativado */
+.next-button:disabled {
+    background-color: #aaa;
+    cursor: not-allowed;
+}
+
+/* Estilização das mensagens de erro e atenção */
+.error-message, .warning-message {
+    display: flex;
+    align-items: center;
+    gap: 8px; /* Espaço entre o ícone e o texto */
+    color: #ffffff;
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+/* Redimensionamento dos ícones de erro e atenção */
+.error-message img, .warning-message img {
+    width: 22px;  /* Define um tamanho fixo */
+    height: 22px;
+}
+
+/* Estilização do link "Termos e Condições" */
+.terms {
+    text-align: center; /* Centraliza o texto */
+    margin-top: 20px; /* Espaço entre o botão e o link */
+}
+
+.terms a {
+    color: #197cfa; /* Cor azul */
+    font-size: 14px;
+    text-decoration: underline; /* Sublinhado */
+    cursor: pointer;
+    transition: color 0.3s ease-in-out;
+}
+
+/* Hover do link */
+.terms a:hover {
+    color: #0d5bbf; /* Azul mais escuro ao passar o mouse */
+}
+
+/* Estilização do link "Criar uma Conta" */
+.register {
+    width: 100%;
+    text-align: center;
+    text-align: left; /* Alinha à esquerda */
+    margin-top: 20px; /* Pequeno espaço abaixo do "Termos e Condições" */
+    font-size: 16px;
+}
+
+.register a {
+    color: white; /* Texto branco */
+    font-weight: bold;
+    text-decoration: underline; /* Sublinhado */
+    transition: color 0.3s ease-in-out;
+}
+
+/* Hover do link "Criar uma Conta" */
+.register a:hover {
+    color: #197cfa; /* Azul ao passar o mouse */
+
+    .logo {
+        width: 90px; /* Reduzindo o tamanho do logo */
+    }
+
+    .modal-content h2 {
+        font-size: 20px; /* Reduzindo o título para telas menores */
+    }
+
+    .phone-input, .validation-container {
+        max-width: 100%;
+    }
+
+    .next-button {
+        width: 100%;
+        font-size: 14px;
+    }
+
+    .terms, .register {
+        text-align: center;
+        font-size: 14px;
+    }
+}

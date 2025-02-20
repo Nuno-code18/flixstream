@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - FlixStream</title>
+    <link rel="stylesheet" href="../css/login.css">
+</head>
+<body>
+    <div class="container">
+        <div class="modal">
+            <div class="modal-content">
+                <img src="../assets/logo.png" alt="FlixStream Logo" class="logo">
+                <h2>INICIAR SESSÃO</h2>
+                <p class="input-label">Número de telefone</p>
+
+                <!-- Grupo da caixa de telefone -->
+                <div class="input-group">
+                    <div class="country-code">+244</div>
+                    <input 
+                        type="text" 
+                        id="phoneNumber" 
+                        class="phone-input" 
+                        placeholder="Digite o seu número de telefone" 
+                        maxlength="9" 
+                        oninput="validatePhoneNumber()"
+                    >
+                </div>
+
+                <!-- Caixa de Validação (AGORA ESTÁ FORA DA .input-group) -->
+                <div class="validation-container">
+                    <input 
+                        type="text" 
+                        id="validationCode" 
+                        class="validation-input" 
+                        placeholder="Introduza o código de validação" 
+                        maxlength="6"
+                    >
+                    <span id="getCodeLink" class="validation-link" onclick="getCode()">Obter o código</span>
+                </div>
+                <div id="successMessage" class="success-message" style="display: none;">
+                    <span class="check-icon">✔️</span> O código de validação foi enviado por SMS!
+                </div>
+                <div id="errorMessage" class="error-message" style="display: none;"></div>
+                <!-- Botão Próximo -->
+<button id="nextButton" class="next-button">PRÓXIMO</button>
+<!-- Link "Termos e Condições" -->
+<p class="terms">
+    <a href="termos.html" id="termsLink">Termos e condições</a>
+</p>
+
+<!-- Link "Criar uma Conta" -->
+<p class="register">
+    Novo na Flixstream? <a href="cadastro.html" id="registerLink">Cria uma conta</a>
+</p>
+
+            </div>
+        </div>        
+    </div>
+
+    <script src="../js/login.js"></script>
+</body>
+</html>
